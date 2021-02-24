@@ -6,7 +6,7 @@ import http from 'http';
 import { hri } from 'human-readable-ids';
 import Router from 'koa-router';
 
-import ClientManager from './lib/ClientManager';
+import ClientManager from './lib/ClientManager.js';
 
 const debug = Debug('localtunnel:server');
 
@@ -90,7 +90,7 @@ export default function(opt) {
 
         // no new client request, send to landing page
         const apiStatusUrl = schema + '://'+ ctx.request.host + '/api/status';
-        ctx.redirect(ctx.request.host);
+        ctx.redirect(apiStatusUrl);
     });
 
     // anything after the / path is a request for a specific client name

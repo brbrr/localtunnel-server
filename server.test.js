@@ -19,6 +19,7 @@ describe('Server', () => {
     it('should redirect root requests to landing page', async () => {
         const server = createServer();
         const res = await request(server).get('/');
+        console.log(res);
         assert.equal('https://localtunnel.github.io/www/', res.headers.location);
     });
 
