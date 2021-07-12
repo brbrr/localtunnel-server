@@ -1,4 +1,4 @@
-FROM node:10.1.0-alpine
+FROM node:14-alpine
 
 WORKDIR /app
 
@@ -11,4 +11,4 @@ COPY . /app
 
 ENV NODE_ENV production
 ENV DEBUG *
-ENTRYPOINT ["node", "-r", "esm", "./bin/server", "--secure", "--max-sockets", "20"]
+ENTRYPOINT ["node", "./bin/server.js", "--secure", "--max-sockets", "30"]
